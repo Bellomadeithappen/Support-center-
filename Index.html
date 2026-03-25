@@ -1,0 +1,143 @@
+# Support-center- 
+My PayPal support center 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Support Center</title>
+  <script  ysrc="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; margin:0; padding:0; }
+    .accordion-content { display: none; }
+    .accordion.active .accordion-content { display: block; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+<div class="flex min-h-screen">
+  <!-- Sidebar -->
+  <div class="w-72 bg-[#001c6b] text-white flex flex-col p-6 hidden md:flex">
+    <div class="text-2xl font-bold mb-12">PERSONAL</div>
+    <div class="flex-1"></div>
+    <button onclick="toggleChat()" class="bg-white text-[#001c6b] font-semibold py-4 rounded-full flex items-center justify-center gap-3 hover:bg-gray-100">
+      <i class="fas fa-comment-dots text-xl"></i> Live Chat Support
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1">
+    <div class="bg-white border-b px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3 text-gray-600">
+        <i class="fas fa-arrow-left"></i> Menu
+      </div>
+      <div class="text-[#001c6b] font-semibold text-xl">How can we help you?</div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6 py-10">
+      <div class="relative mb-10">
+        <input type="text" class="w-full py-5 px-6 pl-16 bg-white border border-gray-300 rounded-3xl text-lg focus:outline-none" placeholder="Search questions, keywords, or topics">
+        <i class="fas fa-search absolute left-7 top-1/2 -translate-y-1/2 text-gray-400 text-2xl"></i>
+      </div>
+
+      <h2 class="text-3xl font-semibold mb-6">Common Issues</h2>
+
+      <div class="space-y-3">
+        <div class="accordion bg-white rounded-3xl border overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full px-6 py-6 text-left flex justify-between hover:bg-gray-50">
+            <div><div class="font-medium">Password and account access</div><div class="text-sm text-gray-500">Resets, unlock account, unknown charges</div></div>
+            <i class="fas fa-chevron-down text-xl mt-1 transition-transform"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-gray-600">Contact live chat for immediate help.</div>
+        </div>
+
+        <div class="accordion bg-white rounded-3xl border overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full px-6 py-6 text-left flex justify-between hover:bg-gray-50">
+            <div><div class="font-medium">Payments</div><div class="text-sm text-gray-500">Holds, declines, refunds, balance</div></div>
+            <i class="fas fa-chevron-down text-xl mt-1 transition-transform"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-gray-600">Payment issues resolved quickly via live chat.</div>
+        </div>
+
+        <div class="accordion bg-white rounded-3xl border overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full px-6 py-6 text-left flex justify-between hover:bg-gray-50">
+            <div><div class="font-medium">Account profile and set up</div><div class="text-sm text-gray-500">Bank account, credit card, limits, email, phone</div></div>
+            <i class="fas fa-chevron-down text-xl mt-1 transition-transform"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-gray-600">Update details or ask in live chat.</div>
+        </div>
+
+        <div class="accordion bg-white rounded-3xl border overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full px-6 py-6 text-left flex justify-between hover:bg-gray-50">
+            <div><div class="font-medium">Disputes and account limitations</div><div class="text-sm text-gray-500">Payment dispute, chargeback, limitation</div></div>
+            <i class="fas fa-chevron-down text-xl mt-1 transition-transform"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-gray-600">Use Resolution Center or live chat.</div>
+        </div>
+
+        <div class="accordion bg-white rounded-3xl border overflow-hidden">
+          <button onclick="toggleAccordion(this)" class="w-full px-6 py-6 text-left flex justify-between hover:bg-gray-50">
+            <div><div class="font-medium">Business solutions</div><div class="text-sm text-gray-500">Fees, shipping, PayPal solutions</div></div>
+            <i class="fas fa-chevron-down text-xl mt-1 transition-transform"></i>
+          </button>
+          <div class="accordion-content px-6 pb-6 text-gray-600">Business help ready in live chat.</div>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <h2 class="text-3xl font-semibold mb-4">Recommended</h2>
+        <button onclick="alert('Opening Resolution Center (demo)')" class="flex items-center gap-4 bg-white border-2 border-gray-300 hover:border-gray-400 px-8 py-5 rounded-full text-lg font-medium w-full justify-center">
+          🤝 Resolution Center
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Live Chat Button -->
+<button onclick="toggleChat()" class="fixed bottom-8 right-8 bg-[#001c6b] w-16 h-16 rounded-3xl text-white text-4xl shadow-2xl flex items-center justify-center z-50">💬</button>
+
+<!-- Live Chat Window -->
+<div id="chatWindow" style="display:none; position:fixed; bottom:100px; right:20px; width:90%; max-width:380px; background:white; border-radius:24px; box-shadow:0 25px 50px -12px rgb(0 0 0 / 0.4); overflow:hidden; z-index:100;">
+  <div class="bg-[#001c6b] text-white p-5 flex justify-between items-center">
+    <div class="font-semibold">Live Chat Support</div>
+    <button onclick="toggleChat()" class="text-3xl">×</button>
+  </div>
+  <div id="chatMessages" class="h-80 p-5 overflow-y-auto bg-gray-50 text-sm"></div>
+  <div class="p-4 border-t flex gap-2">
+    <input id="chatInput" type="text" class="flex-1 border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none" placeholder="Type your message..." onkeypress="if(event.key==='Enter') sendMessage()">
+    <button onclick="sendMessage()" class="bg-[#001c6b] text-white px-7 rounded-2xl font-medium">Send</button>
+  </div>
+</div>
+
+<script>
+  function toggleAccordion(el) {
+    el.parentElement.classList.toggle('active');
+    const icon = el.querySelector('i');
+    if (icon) icon.style.transform = el.parentElement.classList.contains('active') ? 'rotate(180deg)' : '';
+  }
+
+  function toggleChat() {
+    const win = document.getElementById('chatWindow');
+    win.style.display = (win.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    const container = document.getElementById('chatMessages');
+    container.innerHTML += `<div class="bg-[#001c6b] text-white ml-auto max-w-[80%] p-3.5 rounded-3xl rounded-tr-none mb-4">${msg}</div>`;
+    container.scrollTop = container.scrollHeight;
+    input.value = '';
+    setTimeout(() => {
+      container.innerHTML += `<div class="bg-white max-w-[80%] p-3.5 rounded-3xl rounded-tl-none mb-4">Thank you! A support agent will reply shortly (this is a demo).</div>`;
+      container.scrollTop = container.scrollHeight;
+    }, 900);
+  }
+
+  setTimeout(() => { toggleChat(); }, 1500);
+</script>
+</body>
+</html>
